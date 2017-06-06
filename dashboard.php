@@ -4,6 +4,9 @@ if(!array_key_exists('username', $_SESSION))
 {
 	header('Location: login.html');
 }
+else
+{
+}
 
 $con=mysqli_connect("localhost","root","root","db1");
 
