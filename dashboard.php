@@ -12,6 +12,8 @@ $con=mysqli_connect("localhost","root","root","db1");
 				{
 						mysqli_select_db($con,"db1");
 				}
+else
+	
 
 ?>
 <!DOCTYPE html>
