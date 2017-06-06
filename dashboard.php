@@ -6,6 +6,7 @@ if(!array_key_exists('username', $_SESSION))
 }
 else
 {
+ HEADER();
 }
 
 $con=mysqli_connect("localhost","root","root","db1");
