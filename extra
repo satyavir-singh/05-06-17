@@ -1,0 +1,190 @@
+ <!-- validation -->
+  <script type="text/javascript">
+      
+      $(document).ready(function(){
+        /*name*/
+          $(".name").blur(function() {
+                 var name = $(".name").val();
+               
+                 var regex = /^[a-zA-Z ]+$/;
+                 if(name.match(regex))  
+                   {  
+                    return true;  
+                   }  
+                 else  
+                   {  
+                   alert("fail");  
+                   return false;  
+                   }  
+
+            });
+
+            /*address*/
+            $(".address").blur(function() {
+                var address = $(".address").val();
+                if (address == '' )
+                 {
+                     alert("address empty...!!!!!!");
+                 }
+
+
+            });
+
+
+            /*email*/
+            $(".emailid").blur(function() {
+                 var emailid = $(".emailid").val();
+                 if (emailid == '' )
+                 {
+                     alert("Email Empty...!!!!!!");
+                 }
+                var atpos = emailid.indexOf("@");
+                var dotpos = emailid.lastIndexOf(".");
+                if (atpos<1 || dotpos<atpos+2 || dotpos+2>=emailid.length) {
+                    alert("Not a valid e-mail address");
+                    return false;
+                }
+
+                $.ajax({
+                    
+                    url:'email.php',
+                    data:"emailid="+emailid,
+                    type:'POST',
+                    success:function(result){
+                        $(".email_response").html(result);
+                    },
+                     error : function() {
+                          alert("Error");
+                     }
+
+                 });
+
+            });
+
+            /*mobile*/
+            $(".mobile").blur(function() {
+                  var mobile = $(".mobile").val();
+                  if (mobile == '' )
+                   {
+                       alert("Mobile NO Empty...!!!!!!");
+                   }
+                    var pattern = /^\d{10}$/;
+                    if (pattern.test(mobile)) {
+                        return true;
+                    }
+                    alert("It is not valid mobile number.input 10 digits number!");
+                    return false;
+
+            });
+
+
+            /*dob*/
+            $(".dob").blur(function() {
+                  var dob = $(".dob").val();
+                  if (dob == '' )
+                   {
+                       alert("dob  Empty...!!!!!!");
+                   }
+
+
+            });
+
+
+
+
+            //submit
+
+            $(".submit_detail").click(function(){
+
+        /*name*/
+                 var name = $(".name").val();
+                 var regex = /^[a-zA-Z ]+$/;
+                 if(name.match(regex))  
+                   {  
+                    return true;  
+                   }  
+                 else  
+                   {  
+                   alert("fail");  
+                   return false;  
+                   }  
+
+            /*address*/
+                var address = $(".address").val();
+                if (address == '' )
+                 {
+                     alert("address empty...!!!!!!");
+                 }
+
+            /*email*/
+                 var emailid = $(".emailid").val();
+                 if (emailid == '' )
+                 {
+                     alert("Email Empty...!!!!!!");
+                 }
+                  var atpos = emailid.indexOf("@");
+                  var dotpos = emailid.lastIndexOf(".");
+                  if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+                      alert("Not a valid e-mail address");
+                      return false;
+                  }
+            /*mobile*/
+                  var mobile = $(".mobile").val();
+                  if (mobile == '' )
+                   {
+                       alert("Mobile NO Empty...!!!!!!");
+                   }
+                    var pattern = /^\d{10}$/;
+                    if (pattern.test(mobile)) {
+                        return true;
+                    }
+                    alert("It is not valid mobile number.input 10 digits number!");
+                    return false;
+
+
+            /*dob*/
+                  var dob = $(".dob").val();
+                  if (dob == '' )
+                   {
+                       alert("dob  Empty...!!!!!!");
+                   }
+
+
+            });
+             
+
+                 
+});
+      
+
+
+      </script>
+
+
+      pattern="[0-9]{10}" maxlength="10" minlength="10" required
+       if(!preg_match("/^[a-zA-Z ]+$/",$name))
+            {  
+              header("Location:create.php?name_error=only alpha allow ");
+            }  
+
+
+
+
+
+    $atpos =$emailid.indexOf("@");
+            $dotpos = $emailid.lastIndexOf(".");
+            if ($atpos<1 || $dotpos<$atpos+2 || $dotpos+2>=$emailid.length) {
+                header("Location:create.php?email_error=email empty ");
+                return false;
+            }
+
+
+
+
+    $pattern = /^\d{10}$/;
+            if ($pattern.test($mobile)) 
+            {
+                return true;
+            }
+            header("Location:create.php?mobile_error=nums allow ");
+            
