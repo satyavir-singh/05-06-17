@@ -28,7 +28,7 @@ if($con)
         /*address*/
            if(empty($address)) 
            {
-               echo $address_error="address empty";
+               $address_error="address empty";
 
             }
             
@@ -62,13 +62,12 @@ if($con)
 
             if( isset($name_error) || isset($address_error) || isset($mobile_error) || isset($dob_error)  )
             {
-            header("Location:create.php?"."name_error=".$name_error ."&address_error=".$address_error .
-                "&mobile_error=".$mobile_error ."&dob_error=".$dob_error );
+            header("Location:update.php?"."name_error=".$name_error ."&address_error=".$address_error .
+                  "&mobile_error=".$mobile_error ."&dob_error=".$dob_error );
             }
 
             else
             {
-
                     $query = " update student1
                     SET name='$name',emailid='$emailid',address='$address',dob='$dob' 
                     where id=$id ";

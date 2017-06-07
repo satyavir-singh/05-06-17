@@ -25,7 +25,7 @@ if($con)
         /*address*/
            if(empty($address)) 
            {
-               echo $address_error="address empty";
+               $address_error="address empty";
 
             }
             
@@ -43,6 +43,7 @@ if($con)
             }
             
             
+            
 
         /*mobile*/
 
@@ -52,8 +53,8 @@ if($con)
             }
             elseif(!preg_match("/^\d{10}$/",$mobile))
             {  
-                echo $mobile_error="only num allow and 10 digit is allow ";
-            }  
+                $mobile_error="only num allow and 10 digit is allow ";
+            }
             
 
             
@@ -80,7 +81,27 @@ if($con)
 
             else
             {
-                    $query_email_exists="SELECT * FROM student1 WHERE emailid ='$emailid'";
+                 
+    
+                  /*  $emailquery="SELECT * FROM student1 WHERE emailid ='$emailid'";
+                    $result = mysqli_query($con,$emailquery);
+
+                    $row=mysqli_num_rows($result);
+                    if( $row == 1){
+                        $email_error="email exists";
+                    }
+                    else
+                    {
+                        $email_="email not exists";
+                    }
+*/
+
+
+
+
+
+
+                $query_email_exists="SELECT * FROM student1 WHERE emailid ='$emailid'";
                 $result = mysqli_query($con,$query_email_exists);
 
                 $row=mysqli_num_rows($result);

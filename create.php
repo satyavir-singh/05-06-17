@@ -28,7 +28,7 @@ $address_error=$_GET['address_error'];
 
 
    <!-- validation -->
-  <!-- <script type="text/javascript">
+  <script type="text/javascript">
       
       $(document).ready(function(){
         /*name*/
@@ -187,7 +187,7 @@ $address_error=$_GET['address_error'];
       
 
 
-      </script> -->
+      </script>
 
  
 
